@@ -1,4 +1,5 @@
 // Import java packages
+import java.util.Arrays;
 import java.util.Scanner;
 
 // Main class
@@ -9,17 +10,48 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static boolean running = true;
 
+    private static RecipeBox recipeBox = new RecipeBox();
+
     public static void main(String[] args) {
+
+        // Add in recipe box objects
+
+        // 1. Classic Breakfast Waffles
+        recipeBox.addRecipe(new Recipe(
+            "Classic Waffles", 
+            Arrays.asList("Flour", "Sugar", "Baking Powder", "Eggs", "Milk", "Butter"), 
+            "Breakfast", "Waffle Iron", 15.0
+        ));
+
+        // 2. Quick Spicy Ramen
+        recipeBox.addRecipe(new Recipe(
+            "Spicy Ramen", 
+            Arrays.asList("Ramen Noodles", "Sriracha", "Egg", "Green Onions", "Soy Sauce"), 
+            "Lunch", "Stovetop", 10.0
+        ));
+
+        // 3. Garlic Butter Salmon
+        recipeBox.addRecipe(new Recipe(
+            "Garlic Butter Salmon", 
+            Arrays.asList("Salmon Fillet", "Garlic", "Butter", "Lemon", "Parsley"), 
+            "Dinner", "Oven", 20.0
+        ));
+
+        // 4. Avocado Toast
+        recipeBox.addRecipe(new Recipe(
+            "Avocado Toast", 
+            Arrays.asList("Sourdough Bread", "Avocado", "Red Pepper Flakes", "Lemon Juice"), 
+            "Snack", "Toaster", 5.0
+        ));
 
         while (running) {
             showMainMenu();
         }
     }
 
-    // M
+    // Main menu interface method
     private static void showMainMenu() {
 
-        // Main Menu User Interface
         System.out.println("\n/---------- DIGICIPIE v1.0 ----------\\");
         System.out.println("|                                    |");
         System.out.println("|  1. Add a Recipe                   |");
