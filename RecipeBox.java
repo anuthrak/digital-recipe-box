@@ -27,8 +27,11 @@ public class RecipeBox {
       System.out.println("Recipe was already favorited!");
     }
 }
-//implement display favorites method 
-
+Public void getFavorites(){
+  for (Recipe r: recipes){
+    System.out.println("   ✶ " + r);
+  }
+}
   public void searchIngredients(String ingredient) {
     List<Recipe> piesWithIng = new ArrayList<>();
     for (Recipe r : recipes) {
