@@ -1,13 +1,11 @@
 // Import java packages
-import java.util.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 // Main class
 
 public class Main {
 
-    // Create a recipe box
+    // Create scanner and running
     private static Scanner scanner = new Scanner(System.in);
     private static boolean running = true;
 
@@ -18,22 +16,36 @@ public class Main {
         }
     }
 
+    // M
     private static void showMainMenu() {
-        System.out.println("--- Welcome to Digi-Cipie ---");
-        System.out.println("1. Add a recipe");
-        System.out.println("2. Remove a recipe");
-        System.out.println("3. Search for recipes");
-        System.out.println("4. Cook with me!");
-        System.out.println("5. View a recipe");
-        System.out.println("6. View favorite recipes");
-        System.out.println("7. Exit");
-        System.out.print("Please select an option: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
 
-        handleMenuChoice(choice);
+        // Main Menu User Interface
+        System.out.println("\n/---------- DIGICIPIE v1.0 ----------\\");
+        System.out.println("|                                    |");
+        System.out.println("|  1. Add a Recipe                   |");
+        System.out.println("|  2. Remove a Recipe                |");
+        System.out.println("|  3. Search for Recipes             |");
+        System.out.println("|  4. Cook With Me!                  |");
+        System.out.println("|  5. View a Recipe                  |");
+        System.out.println("|  6. View Favorite Recipes          |");
+        System.out.println("|  7. Exit                           |");
+        System.out.println("|                                    |");
+        System.out.println("\\------------------------------------/");
+        
+        System.out.print("Enter Selection [1-7]: ");
+
+        // Wrap input in try-catch to handle non-integer inputs
+        try {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            handleMenuChoice(choice);
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter a number between 1 and 7.");
+            scanner.nextLine(); // Clear the invalid input
+        }
     }
 
+    // Method for handling menu choices
     private static void handleMenuChoice(int choice) {
         switch (choice) {
             case 1:
@@ -58,6 +70,8 @@ public class Main {
                 System.out.println("Thank you for using Digi-Cipie! Goodbye!");
                 running = false;
                 break;
+
+            // Invalid number outside of 1-7
             default:
                 System.out.println("Invalid option. Please try again.");
         }
